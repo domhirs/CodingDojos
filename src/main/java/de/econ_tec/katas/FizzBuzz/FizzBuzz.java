@@ -3,15 +3,15 @@ package de.econ_tec.katas.FizzBuzz;
 public class FizzBuzz {
     public String check(int input) {
         if (isFizz(input) && isBuzz(input)) {
-            return "fizzbuzz";
+            return "fizzbuzz".toUpperCase();
         }
 
         if (isBuzz(input)) {
-            return "buzz";
+            return "buzz".toUpperCase();
         }
 
         if (isFizz(input)) {
-            return "fizz";
+            return "fizz".toUpperCase();
         }
 
         return String.format("%s", input);
