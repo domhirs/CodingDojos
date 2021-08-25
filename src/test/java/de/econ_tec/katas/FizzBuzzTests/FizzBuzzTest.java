@@ -1,8 +1,10 @@
 package de.econ_tec.katas.FizzBuzzTests;
 
 import de.econ_tec.katas.FizzBuzz.FizzBuzz;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class FizzBuzzTest {
 
@@ -17,7 +19,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(1);
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -27,7 +29,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(2);
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -36,7 +38,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(3);
 
-        Assert.assertEquals(FIZZ, actual);
+        Assertions.assertEquals(FIZZ, actual);
     }
 
     @Test
@@ -46,7 +48,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(4);
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -55,7 +57,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(5);
 
-        Assert.assertEquals(BUZZ, actual);
+        Assertions.assertEquals(BUZZ, actual);
     }
 
     @Test
@@ -64,7 +66,18 @@ public class FizzBuzzTest {
 
         String actual = target.check(6);
 
-        Assert.assertEquals(FIZZ, actual);
+        Assertions.assertEquals(FIZZ, actual);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {1, 2, 4, 7, 8})
+    public void Check_ValueSource_ReturnsSameValue(int input) {
+        var target = new FizzBuzz();
+        String expected = Integer.toString(input);
+
+        String actual = target.check(input);
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -74,7 +87,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(7);
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -84,7 +97,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(8);
 
-        Assert.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -93,7 +106,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(9);
 
-        Assert.assertEquals(FIZZ, actual);
+        Assertions.assertEquals(FIZZ, actual);
     }
 
     @Test
@@ -102,7 +115,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(10);
 
-        Assert.assertEquals(BUZZ, actual);
+        Assertions.assertEquals(BUZZ, actual);
     }
 
     @Test
@@ -111,7 +124,7 @@ public class FizzBuzzTest {
 
         String actual = target.check(15);
 
-        Assert.assertEquals(FIZZBUZZ, actual);
+        Assertions.assertEquals(FIZZBUZZ, actual);
     }
 
     @Test
@@ -120,6 +133,6 @@ public class FizzBuzzTest {
 
         String actual = target.check(30);
 
-        Assert.assertEquals(FIZZBUZZ, actual);
+        Assertions.assertEquals(FIZZBUZZ, actual);
     }
 }
