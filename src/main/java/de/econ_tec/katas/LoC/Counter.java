@@ -6,22 +6,39 @@ import java.util.Objects;
 
 public class Counter {
     public int linesOfCode(String code) {
-        var res = 0;
+        var codeLineCount = 0;
+        var whitespaceLineCount = 0;
+        var commentLineCount = 0;
+
         var lines = code.split(Constants.NEWLINE);
 
         for (var line : lines) {
-            if (isEmpty(line)) {
-                res += 0;
+            if (isMultiLineComment(line)) {
+                commentLineCount++;
+            }
+            else if (isLineComment(line)) {
+                commentLineCount++;
+            }
+            else if (isEmpty(line)) {
+                whitespaceLineCount++;
             }
             else {
-                res++;
+                codeLineCount++;
             }
         }
 
-        return res;
+        return codeLineCount;
+    }
+
+    private boolean isMultiLineComment(String line) {
+        return line.trim().startsWith("/*") && line.trim().endsWith("*/");
+    }
+
+    private boolean isLineComment(String line) {
+        return line.trim().startsWith("//");
     }
 
     private static boolean isEmpty(String line) {
-        return Objects.equals(line, "");
+        return Objects.equals(line.trim(), "");
     }
 }
