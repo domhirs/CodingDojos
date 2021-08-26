@@ -41,4 +41,24 @@ public class CounterTests {
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void linesOfCode_OneLineOfCodeAndOneEmpty_1() {
+        var expected = 1;
+        var code = String.format("AAAAA %s", Constants.NEWLINE);
+
+        int actual = _target.linesOfCode(code);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void linesOfCode_TwoLinesOfCodeAndOneEmpty_2() {
+        var expected = 2;
+        var code = String.format("AAAAA %s%s BBBBB", Constants.NEWLINE, Constants.NEWLINE);
+
+        int actual = _target.linesOfCode(code);
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
