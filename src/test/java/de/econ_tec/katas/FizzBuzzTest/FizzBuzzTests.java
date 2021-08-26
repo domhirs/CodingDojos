@@ -1,4 +1,4 @@
-package de.econ_tec.katas.FizzBuzzTests;
+package de.econ_tec.katas.FizzBuzzTest;
 
 import de.econ_tec.katas.FizzBuzz.FizzBuzz;
 import org.junit.jupiter.api.Assertions;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-public class FizzBuzzTest {
+public class FizzBuzzTests {
 
     private final String BUZZ = "BUZZ";
     private final String FIZZ = "FIZZ";
